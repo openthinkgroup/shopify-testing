@@ -1,0 +1,213 @@
+window.onload = function(){	
+	
+	document.createElement("body");
+	
+	var returnStr = document.getElementsByTagName("script")[0].src.split('.js?');
+	
+	var scriptURL = decodeURIComponent(returnStr[1]);
+	
+	var returnArr = scriptURL.split('&');
+	
+	var data = {};
+	
+	returnArr.forEach(function(response) {
+		
+		var temp = response.split('=');
+		
+		if(temp[1].indexOf("+") > -1){
+			/* 
+			var firstChar = temp[1].charAt(0);
+			
+			var remainingStr = temp[1].slice(1);
+			
+			str = firstChar.toUpperCase() + remainingStr; */
+		
+			data[temp[0]] = decodeURIComponent(temp[1].split('+').join(' '));
+		
+		} else {
+			
+			data[temp[0]] = decodeURIComponent(temp[1]);
+			
+		}
+		
+	});
+	/* console.log(data); */
+	
+	
+	
+	
+	var AVoverlay = document.createElement("iframe");
+	
+	AVoverlay.setAttribute("id","AVoverlay");
+	
+	AVoverlay.setAttribute("src","http://webandweb.in/shopify_testing/age-verification.html");
+	
+	AVoverlay.style.width = "100%";
+	
+	
+	AVoverlay.style.height = "100%";
+	
+	AVoverlay.style.setProperty('position', 'fixed');
+	
+	AVoverlay.style.left = "0";
+	
+	
+	AVoverlay.style.top = "0";
+	
+	AVoverlay.style.zIndex = "100000";
+	
+	AVoverlay.style.border = "0";
+	
+	document.body.appendChild(AVoverlay);
+
+	
+	
+	
+	
+	
+	var AVcontentBox = document.createElement("div");
+	
+	AVcontentBox.setAttribute("id","AVcontentBox");
+	
+	AVcontentBox.style.position = "fixed";
+	
+	AVcontentBox.style.left = "50%";
+	
+	AVcontentBox.style.top = "100px";
+	
+	AVcontentBox.style.marginLeft = "-150px";
+	
+	AVcontentBox.style.height = "250px";
+	
+	AVcontentBox.style.width = "300px";
+	
+	AVcontentBox.style.zIndex = "100001"; 
+	
+	AVcontentBox.style.textAlign = "center";
+	
+	AVcontentBox.style.setProperty('color', '#fff');
+	
+	AVcontentBox.style.setProperty('font-size', '28px');
+	
+	AVcontentBox.style.setProperty('font-family', 'Helvetica');
+	
+	AVcontentBox.style.paddingTop = "20px";
+	
+	AVcontentBox.style.lineHeight = "30px";
+	
+	AVcontentBox.innerHTML = "<h3>"+data.heading_title+"</h3>"+data.message;
+	
+	document.body.appendChild(AVcontentBox);
+	
+	
+	
+	
+   
+	var avLink = document.createElement("input");
+	
+	avLink.setAttribute("id","avLink");
+	
+	avLink.setAttribute("type","button");
+	
+	avLink.setAttribute("onclick","window.location='http://age-verify.com/underAge/vaping2/';");
+
+	avLink.style.position = "fixed";
+	
+	avLink.style.cursor = "pointer";
+	
+	avLink.style.left = "50%";
+	
+	avLink.style.marginLeft = "-130px";
+	
+	avLink.style.top = "300px";
+	
+	avLink.style.setProperty('height', '40px');
+	
+	avLink.style.setProperty('width', '120px');
+	
+	avLink.style.setProperty('color', '#fff');
+	
+	avLink.style.setProperty('font-size', '16px');
+	
+	avLink.style.setProperty('padding','0');
+	
+	avLink.style.setProperty('font-family','Helvetica');
+	
+	avLink.style.setProperty('font-weight','lighter');
+	
+	avLink.style.setProperty("background-color", data.btn_background1 );
+	
+	/* avLink.setAttribute("onMouseOver","this.style.setProperty('background-color','#009900')");
+
+	avLink.setAttribute("onMouseOut","this.style.setProperty('background-color','"+data.btn_background1+"')"); */
+
+	avLink.style.setProperty('border', '0');
+
+	avLink.style.setProperty('border-radius', '0');
+
+	avLink.style.setProperty('outline', 'none');
+
+	avLink.style.setProperty('box-shadow', 'none');
+
+	avLink.setAttribute("value", data.btn_text1);
+
+	document.getElementById('AVcontentBox').appendChild(avLink);
+
+
+
+	
+	
+	
+	var AVenterLink = document.createElement("input");
+
+	AVenterLink.setAttribute("id","AVenterLink");
+
+	AVenterLink.setAttribute("type","button");
+
+	AVenterLink.setAttribute("onclick","setMyCookie();");
+
+
+
+	AVenterLink.style.position = "fixed";
+
+	AVenterLink.style.cursor = "pointer";
+
+	AVenterLink.style.left = "50%";
+
+	AVenterLink.style.marginLeft = "10px";
+
+	AVenterLink.style.top = "300px";
+
+	AVenterLink.style.setProperty('height', '40px');
+
+	AVenterLink.style.setProperty('width', '120px');
+
+	AVenterLink.style.setProperty('color', '#fff');
+
+	AVenterLink.style.setProperty('font-size', '16px');
+
+	AVenterLink.style.setProperty('padding','0');
+
+	AVenterLink.style.setProperty('font-family','Helvetica');
+
+	AVenterLink.style.setProperty('font-weight','lighter');
+
+	AVenterLink.style.setProperty('background-color', data.btn_background2);
+
+	/* AVenterLink.setAttribute("onMouseOver","this.style.setProperty('background-color','#009900','important')");
+
+	AVenterLink.setAttribute("onMouseOut","this.style.setProperty('background-color','"+data.btn_background1+"','important')"); */
+
+	AVenterLink.style.setProperty('border', '0');
+
+	AVenterLink.style.setProperty('border-radius', '0');
+
+	AVenterLink.style.setProperty('outline', 'none');
+
+	AVenterLink.style.setProperty('box-shadow', 'none');
+
+	AVenterLink.setAttribute("value", data.btn_text2);
+
+	document.getElementById('AVcontentBox').appendChild(AVenterLink);
+
+}

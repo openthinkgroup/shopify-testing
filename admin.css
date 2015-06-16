@@ -1,0 +1,59 @@
+body {
+    background-color: rgb(255, 255, 255);
+    color: rgb(85, 85, 85);
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 15px;
+    line-height: 21px;
+    margin: 0;
+	padding-bottom: 40px;
+    padding-top: 80px;
+}
+.container {
+    margin-left: auto;
+    margin-right: auto;
+	 width: 1170px;
+}
+.hero-unit {
+    background-color: rgb(221, 221, 221);
+    border-radius: 6px;
+    color: inherit;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 31.5px;
+    margin-bottom: 30px;
+    padding: 60px;
+	border: 0 none;
+}
+.row:before, .row:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+.row:before, .row:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+
+input {
+    font-size: 18px;
+    height: 40px;
+    margin: 20px 0 0;
+    width: 360px;
+}
+textarea {
+    height: 115px;
+    width: 362px;
+	  margin: 20px 0 0;
+}
+.btn {
+    background: none repeat scroll 0 0 rgb(201, 95, 7);
+    border-radius: 15px;
+    margin: 30px;
+    width: 220px !important;
+}
+.copy_note {
+    color: rgb(255, 0, 0);
+    text-align: center;
+    width: 600px;
+}

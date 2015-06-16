@@ -1,0 +1,232 @@
+/* CSS Document */
+
+*{
+	padding:0;
+	margin:0;}
+	
+a{
+	text-decoration:none;}
+	
+	
+img{border:none;
+	outline:none;}
+	
+iframe{
+	border:none;
+	outline:none;}
+	
+html, body{
+	width:100%;
+	height:100%;
+	background-size:cover;
+	background-repeat:no-repeat;}
+	
+#AVcontentBG{
+	position:fixed;
+	left:50%;
+	top:100px;
+	margin-left:-150px;
+	height:300px;
+	width:300px;
+	background-color:#000;
+	filter: alpha(opacity=50); /* internet explorer */
+    -khtml-opacity: 0.5;      /* khtml, old safari */
+    -moz-opacity: 0.5;       /* mozilla, netscape */
+    opacity: 0.5;}
+	
+#AVBGLink{
+	color:#CCC;
+	font-family:Helvetica;
+	width:140px;
+	left:50%;
+	margin-left:-70px;
+	text-align:center;
+	font-size:14px;
+	position:absolute;
+	top:280px;
+	font-weight:100;
+	background-image:url(images/bg_greenCheck.png);
+	background-repeat:no-repeat;
+	background-position:left top;
+	filter: alpha(opacity=90); /* internet explorer */
+    -khtml-opacity: 1.0;      /* khtml, old safari */
+    -moz-opacity: 1.0;       /* mozilla, netscape */
+    opacity: none;
+	padding-top:2px;
+	padding-left:5px;}
+	
+#AVBGLink:hover{
+	color:#fff;
+	border-bottom:1px dotted #fff;}
+	
+#AViframe{
+	height:100%;
+	width:100%;}
+	
+body.singlemalt{
+	background-image:url(images/singlemalt.jpg);
+	background-position:center bottom;}
+	
+body.opaque{
+	background-image:url(images/black50.png);
+	background-repeat:repeat;}
+	
+body.wineshop{
+	background-image:url(images/wineshop.jpg);
+	background-position:center top;}
+	
+body.wineglass{
+	background-image:url(images/wineglass.jpg);
+	background-position:right bottom;}
+	
+body.vineyard{
+	background-image:url(images/vineyard.jpg);
+	background-position:center bottom;}
+	
+body.vaping{
+	background-image:url(images/vaping.jpg);
+	background-position:right center;}
+	
+body.vaping2{
+	background-image:url(images/vaping2.jpg);
+	background-position:center top;}
+	
+body.taps{
+	background-image:url(images/taps.jpg);
+	background-position:center bottom;}
+	
+body.bottles{
+	background-image:url(images/bottles.jpg);
+	background-position:center bottom;}
+	
+body.cigars{
+	background-image:url(images/cigars.jpg);
+	background-position:center top;}
+	
+body.beer{
+	background-image:url(images/beer.jpg);
+	background-position:center top;}
+	
+body.cheers{
+	background-image:url(images/cheers.jpg);
+	background-position:center top;}
+	
+body.bottledBeer{
+	background-image:url(images/bottledBeer.jpg);
+	background-position:center top;}
+	
+body.hops{
+	background-image:url(images/hops.jpg);
+	background-position:center top;}
+	
+body.beerSteins{
+	background-image:url(images/beerSteins.jpg);
+	background-position:right top;}
+	
+body.chips{
+	background-image:url(images/chips.jpg);
+	background-position:right top;}
+	
+body.female{
+	background-image:url(images/female.jpg);
+	background-position:center bottom;}
+	
+body.male{
+	background-image:url(images/male.jpg);
+	background-position:center bottom;}
+	
+body.weed{
+	background-image:url(images/weed.jpg);
+	background-position:center top;}
+	
+body.vodka{
+	background-image:url(images/vodka.jpg);
+	background-position:center bottom;}
+	
+#AVpattern { 
+    height:100%;
+	width:100%;
+	background: transparent url(images/pattern.png) repeat top left;}
+	
+.ad{
+	position:absolute;
+	bottom:0px;
+	left:50%;
+	margin-left:-300px;
+	height:120px;
+	width:600px;
+	overflow:hidden;}
+	
+.ad iframe{
+	width:600px;}
+	
+.avalie{
+	position:absolute;
+	bottom:0px;
+	left:50%;
+	margin-left:-364px;
+	height:90px;
+	width:728px;
+	overflow:hidden;}
+	
+.avalie iframe{
+	width:728px;}
+
+	
+img:hover{border: 2px solid #fff;
+		margin-left:-2px;}
+		
+#overlay{
+	height:100%;
+	width:100%;
+	background-image:url(images/black50.png);
+	background-repeat:repeat;
+	position:absolute;
+	top:0;
+	left:0;}
+	
+#AVlink{
+	position:absolute;
+	right:0px;
+	bottom:0px;
+	opacity: 0.2;}
+	
+#AVlink:hover{
+	opacity:1.0;}
+	
+@media screen and (max-width: 599px),
+screen and (max-width: 599px) and (orientation: portrait) {
+body.singlemalt{
+	background-image:url(images/singlemaltPhone.jpg);}
+	
+body.wineshop{
+	background-image:url(images/wineshopPhone.jpg);}
+	
+body.vineyard{
+	background-image:url(images/vineyardPhone.jpg);}
+	
+body.taps{
+	background-image:url(images/tapsPhone.jpg);}
+	
+body.vaping{
+	background-image:url(images/vapingPhone.jpg);}
+	
+.ad{width:300px;
+height:80px;
+margin-left:-150px;}
+	
+.ad iframe{
+	width:300px;}
+	
+.avalie{width:300px;
+height:50px;
+margin-left:-150px;}
+	
+.avalie iframe{
+	width:300px;}
+	
+#AVlink{display:none;}
+	
+}
+
+

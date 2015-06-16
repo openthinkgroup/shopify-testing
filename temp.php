@@ -1,0 +1,2 @@
+<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+<script id="age-verification-script" type="text/javascript" src="http://webandweb.in/shopify_testing/age-verification.jquery.js?ae725c0088a30b96494423152c8caea7"></script>
