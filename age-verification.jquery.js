@@ -20,7 +20,7 @@ window.onload = function(){
 			
 			$.ajax({
 				
-				dataType: 'jsonp',
+				crossOrigin: true,
 				
 				async: false,
 			
