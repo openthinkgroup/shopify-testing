@@ -56,7 +56,7 @@ $_SESSION['shop']=$shop;
 
 /* $shop1=$_SESSION['shop']; */
 
-$db = new Mysqli("localhost", "webnweb_shopify", "shopify!@#", "webnweb_shopify_app");
+$db = new Mysqli("ec2-54-243-132-114.compute-1.amazonaws.com", "scvoxznmcyyyvn", "G9rQkI4BZs82-U2BOyAVgJ2h-Z", "dfjdld5mdvpnbt");
 
 if (isset($_POST['btn'])) {
 
