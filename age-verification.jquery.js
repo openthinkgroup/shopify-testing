@@ -24,7 +24,7 @@ window.onload = function(){
 				
 				async: false,
 			
-				url: 'http://webandweb.in/shopify_testing/age-verification.ajax.php?sid='+sid,
+				url: 'https://github.com/openthinkgroup/shopify_testing/age-verification.ajax.php?sid='+sid,
 				
 				success: function(response){
 					
@@ -34,7 +34,7 @@ window.onload = function(){
 					
 					AVoverlay.setAttribute("id","AVoverlay");
 					
-					AVoverlay.setAttribute("src","http://webandweb.in/shopify_testing/age-verification.html");
+					AVoverlay.setAttribute("src","https://github.com/openthinkgroup/shopify_testing/age-verification.html");
 					
 					AVoverlay.style.width = "100%";
 					
