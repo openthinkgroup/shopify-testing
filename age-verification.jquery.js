@@ -18,9 +18,13 @@ window.onload = function(){
 			
 			var sid = returnStr[1];
 			
-			$.ajax({
+			$.getJSON('https://shopify-testing-app.herokuapp.com/age-verification.ajax.php?sid='+sid+'&callback=', NULL, function(response) {
+				 
+				/* callBackFunction(data); */
+				 
+				/* $.ajax({ */
 				
-				crossOrigin: true,
+				/* crossOrigin: true,
 				
 				dataType: 'json',
 				
@@ -28,10 +32,10 @@ window.onload = function(){
 			
 				url: 'https://shopify-testing-app.herokuapp.com/age-verification.ajax.php?sid='+sid,
 				
-				success: function(response){
+				success: function(response){ */
 					
 					_data = JSON.parse(response);
-					/* console.log(_data); */
+					
 					var AVoverlay = document.createElement("iframe");
 					
 					AVoverlay.setAttribute("id","AVoverlay");
@@ -188,7 +192,7 @@ window.onload = function(){
 
 				}
 				
-			});
+			);
 			
 			
 		/* } */
