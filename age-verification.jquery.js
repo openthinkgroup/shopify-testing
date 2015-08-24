@@ -22,6 +22,8 @@ window.onload = function(){
 				
 				crossOrigin: true,
 				
+				dataType: 'json',
+				
 				async: false,
 			
 				url: 'https://shopify-testing-app.herokuapp.com/age-verification.ajax.php?sid='+sid,
