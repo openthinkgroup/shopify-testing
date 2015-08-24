@@ -55,8 +55,16 @@ $shop=$_REQUEST['shop'];
 $_SESSION['shop']=$shop;
 
 /* $shop1=$_SESSION['shop']; */
+$dsn = "pgsql:"
+    . "host=ec2-54-243-132-114.compute-1.amazonaws.com;"
+    . "dbname=dfjdld5mdvpnbt;"
+    . "user=scvoxznmcyyyvn;"
+    . "port=5432;"
+    . "sslmode=require;"
+    . "password=G9rQkI4BZs82-U2BOyAVgJ2h-Z";
 
-$db = new Mysqli("ec2-54-243-132-114.compute-1.amazonaws.com", "scvoxznmcyyyvn", "G9rQkI4BZs82-U2BOyAVgJ2h-Z", "dfjdld5mdvpnbt");
+$db = new PDO($dsn);
+//$db = new Mysqli("ec2-54-243-132-114.compute-1.amazonaws.com", "scvoxznmcyyyvn", "G9rQkI4BZs82-U2BOyAVgJ2h-Z", "dfjdld5mdvpnbt");
 
 if (isset($_POST['btn'])) {
 
