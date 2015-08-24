@@ -90,15 +90,21 @@ if (isset($_POST['btn'])) {
 		
 	}
 
-	$sql= "update tbl_usersettings 
+	/*$sql= "update tbl_usersettings 
 		 SET heading = '$Heading_text', 
 		 message_text = '$message_text',Button1_text='$Button1_text',Button1_color='$Button1_color',
-		 Button2_text='$Button2_text',Button2_color='$Button2_color' where access_token = '$sid'";
-	
+		 Button2_text='$Button2_text',Button2_color='$Button2_color' where access_token = '$sid'";*/
+	$sql =<<<EOF
+      update tbl_usersettings 
+		 SET heading = '$Heading_text', 
+		 message_text = '$message_text',Button1_text='$Button1_text',Button1_color='$Button1_color',
+		 Button2_text='$Button2_text',Button2_color='$Button2_color' where access_token = '$sid';
+EOF;
+  
 	echo '<span style="background: none repeat scroll 0% 0% rgb(255, 133, 102); padding: 10px 20px; line-height: 35px; float: left; clear: both; border-radius: 4px; font-family: arial; font-style: italic;">&lt;script id="age-verification-script" type="text/javascript" src="https://shopify-testing-app.herokuapp.com/age-verification.jquery.js?'.$sid.'"&gt;&lt;/script&gt;</span>';
 
 	echo '<h4 class="copy_note">Please copy and paste above code in head section of your webpage.</h4>';
-	
+  /*	pg_execute($db, "my_query", array("Joe's Widgets"));
 	if (mysqli_query($db, $sql)) {
 
 		echo "Record updated successfully";
@@ -107,7 +113,14 @@ if (isset($_POST['btn'])) {
 
 		echo "Error updating record: " . mysqli_error($conn);
 		
-	}
+	} */
+	 $ret = pg_query($db, $sql);
+   if(!$ret){
+      echo pg_last_error($db);
+      exit;
+   } else {
+      echo "Record updated successfully\n";
+   }
 
 }
 ?>
