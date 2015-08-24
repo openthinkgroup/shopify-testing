@@ -54,7 +54,7 @@ $shop=$_REQUEST['shop'];
 
 $_SESSION['shop']=$shop;
 
-/* $shop1=$_SESSION['shop']; */
+/* $shop1=$_SESSION['shop']; 
 $dsn = "pgsql:"
     . "host=ec2-54-243-132-114.compute-1.amazonaws.com;"
     . "dbname=dfjdld5mdvpnbt;"
@@ -63,9 +63,19 @@ $dsn = "pgsql:"
     . "sslmode=require;"
     . "password=G9rQkI4BZs82-U2BOyAVgJ2h-Z";
 
-$db = new PDO($dsn);
+$db = new PDO($dsn);*/
 //$db = new Mysqli("ec2-54-243-132-114.compute-1.amazonaws.com", "scvoxznmcyyyvn", "G9rQkI4BZs82-U2BOyAVgJ2h-Z", "dfjdld5mdvpnbt");
+$host        = "host=ec2-54-243-132-114.compute-1.amazonaws.com";
+   $port        = "port=5432";
+   $dbname      = "dbname=dfjdld5mdvpnbt";
+   $credentials = "user=scvoxznmcyyyvn password=G9rQkI4BZs82-U2BOyAVgJ2h-Z";
 
+   $db = pg_connect( "$host $port $dbname $credentials"  );
+   if(!$db){
+      echo "Error : Unable to open database\n";
+   } else {
+      echo "Opened database successfully\n";
+   }
 if (isset($_POST['btn'])) {
 
 	$shop1='age-verification.myshopify.com';
