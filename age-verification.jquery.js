@@ -19,8 +19,8 @@ window.onload = function(){
 			var sid = returnStr[1];
 			
 			$.ajax({
-			
-				type: 'GET',
+				
+				dataType: 'jsonp',
 				
 				async: false,
 			
