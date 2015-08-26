@@ -17,7 +17,7 @@ $host        = "host=ec2-54-243-132-114.compute-1.amazonaws.com";
 $sql =<<<EOF SELECT * FROM tbl_appsettings WHERE id = 1 EOF;
 $select_settings = pg_query($db, $sql);
 //$select_settings = $db->query("SELECT * FROM tbl_appsettings WHERE id = 1");
-$app_settings = $select_settings->fetch_object();
+$app_settings = $select_settings->pg_fetch_object();
 
 if(!empty($_GET['shop'])){ //check if the shop name is passed in the URL
   $shop = $_GET['shop']; //shop-name.myshopify.com
