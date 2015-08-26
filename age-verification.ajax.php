@@ -25,8 +25,9 @@ EOF;
 		
 		$response = pg_fetch_assoc($qry);
 		
-		echo $data = json_encode($response);
+		$data = json_encode($response);
 		
+		echo '['.$data.']';
 		/* file_put_contents("age-verification.data.json", $data); */
 		
 	}
