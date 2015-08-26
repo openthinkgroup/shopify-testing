@@ -22,7 +22,7 @@ $app_settings = $select_settings->pg_fetch_object();
 if(!empty($_GET['shop'])){ //check if the shop name is passed in the URL
   $shop = $_GET['shop']; //shop-name.myshopify.com
   
-  $select_store = pg_query($db,"SELECT store_name FROM tbl_usersettings WHERE store_name = '$shop'"); //check if the store exists
+  $select_store = pg_query($db,"SELECT store_name FROM tbl_usersettings WHERE store_name = $shop"); //check if the store exists
   
  if($select_store->pg_num_rows > 0){
       
@@ -68,8 +68,8 @@ if(!empty($_GET['shop'])&& !empty($_GET['code'])){
   //save the shop details to the database
   pg_query($db,"
      INSERT INTO tbl_usersettings 
-     SET access_token = '$access_token',
-     store_name = '$shop'
+     SET access_token = $access_token,
+     store_name = $shop
  ");
 
   //save the signature and shop name to the current session
