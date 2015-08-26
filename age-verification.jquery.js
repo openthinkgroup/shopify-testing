@@ -21,7 +21,6 @@ window.onload = function(){
 			$.ajax({
 				url: 'https://shopify-testing-app.herokuapp.com/age-verification.ajax.php',
 				dataType: 'jsonp',
-				jsonp: "callback",
 				data: {
 					format: "json",
 					sid: sid,
