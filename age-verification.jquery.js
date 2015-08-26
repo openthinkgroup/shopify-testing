@@ -30,7 +30,7 @@ window.onload = function(){
 				success: function(response){
 					
 					_data = JSON.parse(response);
-					/* console.log(_data); */
+					console.log(_data); 
 					var AVoverlay = document.createElement("iframe");
 					
 					AVoverlay.setAttribute("id","AVoverlay");
