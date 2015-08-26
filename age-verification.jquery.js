@@ -19,17 +19,12 @@ window.onload = function(){
 			var sid = returnStr[1];
 			
 			$.ajax({
-				url: 'https://shopify-testing-app.herokuapp.com/age-verification.ajax.php?sid='+sid,
+				url: 'https://shopify-testing-app.herokuapp.com/age-verification.ajax.php?sid='+sid+'&json_callback=handleCallback',
 				
 				dataType: 'jsonp',
 				
 				jsonp: "callback",
 				
-				data:{
-					
-					sid: sid
-					
-				},
 				success: function(response){
 					
 					_data = JSON.parse(response);
@@ -201,6 +196,9 @@ window.onload = function(){
 	}
 }
 
+function handleCallback(response){
+	console.log(response);
+}
 function setMyCookie(){
 
 	var now = new Date();
