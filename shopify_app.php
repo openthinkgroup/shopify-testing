@@ -13,9 +13,8 @@ $host        = "host=ec2-54-243-132-114.compute-1.amazonaws.com";
       echo "Error : Unable to open database\n";
    } 
 //$db = new Mysqli("localhost", "webnweb_shopify", "shopify!@#", "webnweb_shopify_app");
-
-$sql =<<<EOF SELECT * FROM tbl_appsettings WHERE id = 1 EOF;
-$select_settings = pg_query($db, $sql);
+ 
+$select_settings = pg_query($db,"SELECT * FROM tbl_appsettings WHERE id = 1");
 //$select_settings = $db->query("SELECT * FROM tbl_appsettings WHERE id = 1");
 $app_settings = $select_settings->pg_fetch_object();
 
