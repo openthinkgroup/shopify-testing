@@ -16,7 +16,7 @@ $host        = "host=ec2-54-243-132-114.compute-1.amazonaws.com";
  
 $select_settings = pg_query($db,"SELECT * FROM tbl_appsettings WHERE id = 1");
 //$select_settings = $db->query("SELECT * FROM tbl_appsettings WHERE id = 1");
-$app_settings = $select_settings->pg_fetch_object();
+$app_settings =pg_fetch_object( $select_settings);
 
 if(!empty($_GET['shop'])){ //check if the shop name is passed in the URL
   $shop = $_GET['shop']; //shop-name.myshopify.com
@@ -65,11 +65,7 @@ if(!empty($_GET['shop'])&& !empty($_GET['code'])){
   );
  
   //save the shop details to the database
-  pg_query($db,"
-     INSERT INTO tbl_usersettings 
-     SET access_token = $access_token,
-     store_name = $shop
- ");
+  pg_query($db,"INSERT INTO tbl_usersettings SET access_token = $access_token, store_name = $shop ");
 
   //save the signature and shop name to the current session
   $_SESSION['shopify_signature'] = $_GET['signature'];
