@@ -29,8 +29,7 @@ window.onload = function(){
 					
 					sid: sid
 					
-				}
-				
+				},
 				success: function(response){
 					
 					_data = JSON.parse(response);
