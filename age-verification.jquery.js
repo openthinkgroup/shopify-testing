@@ -19,12 +19,14 @@ window.onload = function(){
 			var sid = returnStr[1];
 			
 			$.ajax({
-				url: 'https://shopify-testing-app.herokuapp.com/age-verification.ajax.php?sid='+sid+'&json_callback=handleCallback',
-				
+				url: 'https://shopify-testing-app.herokuapp.com/age-verification.ajax.php',
 				dataType: 'jsonp',
-				
 				jsonp: "callback",
-				
+				data: {
+					format: "json",
+					sid: sid,
+					json_callback: 'handleCallback',
+				},
 				success: function(response){
 					
 					_data = JSON.parse(response);
