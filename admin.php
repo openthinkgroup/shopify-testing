@@ -1,11 +1,19 @@
+<?php 
+$host = "host=ec2-54-243-132-114.compute-1.amazonaws.com";
+$port = "port=5432";
+$dbname = "dbname=dfjdld5mdvpnbt";
+$credentials = "user=scvoxznmcyyyvn password=G9rQkI4BZs82-U2BOyAVgJ2h-Z";
+$db = pg_connect( "$host $port $dbname $credentials"  );
+if(!$db){
+	echo "Error : Unable to open database\n";
+}
+?>
+
 <html>
-<head>
-
-<title> Age Verification script </title>
-<link href="admin.css" type="text/css" rel="stylesheet"/>
-
-
-</head>
+	<head>
+		<title> Age Verification script </title>
+		<link href="admin.css" type="text/css" rel="stylesheet"/>
+	</head>
 <body>
 <div class="container">
 	<div class="hero-unit">
@@ -108,14 +116,6 @@
 
 session_start();
 $_SESSION['shop'] = $_REQUEST['shop'];
-$host = "host=ec2-54-243-132-114.compute-1.amazonaws.com";
-$port = "port=5432";
-$dbname = "dbname=dfjdld5mdvpnbt";
-$credentials = "user=scvoxznmcyyyvn password=G9rQkI4BZs82-U2BOyAVgJ2h-Z";
-$db = pg_connect( "$host $port $dbname $credentials"  );
-if(!$db){
-	echo "Error : Unable to open database\n";
-}
 if (isset($_POST['btn'])){
 	$Heading_text=$_POST['Heading_text'];	
 	$message_text=$_POST['message_text'];	
