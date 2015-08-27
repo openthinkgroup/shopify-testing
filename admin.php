@@ -15,7 +15,8 @@
 	<div class="row">
 		<h3>Please Fill the form Fields</h3>
 		<form action="#" method="post" class="age_form">
-			<?php 
+			<?php
+			$store = $_REQUEST['shop'];			
 			$sql_get_shop_temp = "SELECT * FROM tbl_usersettings WHERE store_name = '$store'";
 			$res_get_shop_temp = pg_query($db, $sql_get_shop_temp);
 			if($res_get_shop_temp && pg_num_rows($res_get_shop_temp) > 0){ 
@@ -54,7 +55,7 @@
 						<td><input type="text" name="cookie_lifetime" class="cookie_lifetime" style="max-width: 100px;" value="<?php echo $data['cookie_lifetime']; ?>"/>&nbsp;days&nbsp;&nbsp;<code style="color:red">[Default will be 365 days]</code></td>
 					</tr>
 					<tr>
-						<td colspan="2"><input type="submit" class="btn" name="btn"></td>
+						<td colspan="2"><input type="submit" class="btn" name="btn" value="Generate Script"></td>
 					</tr>
 				</table>
 			<?php } else {?>
@@ -76,7 +77,7 @@
 						<td><input type="text" name="Button1_color" class="Button1_color" required="required">&nbsp;&nbsp;<code style="color:red">[eg: #000000 or black]</code></td>
 					</tr>
 					<tr>
-						<td><label for="Button2">Button 1 Text</label></td>
+						<td><label for="Button2">Button 2 Text</label></td>
 						<td><input type="text" name="Button2_text" class="Button2_text" required="required"></td>
 					</tr>
 					<tr>
@@ -92,7 +93,7 @@
 						<td><input type="text" name="cookie_lifetime" class="cookie_lifetime" style="max-width: 100px;"/>&nbsp;days&nbsp;&nbsp;<code style="color:red">[Default will be 365 days]</code></td>
 					</tr>
 					<tr>
-						<td colspan="2"><input type="submit" class="btn" name="btn"></td>
+						<td colspan="2"><input type="submit" class="btn" name="btn" value="Generate Script"></td>
 					</tr>
 				</table>
 			<?php } ?>
