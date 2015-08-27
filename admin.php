@@ -57,90 +57,60 @@
 
 <?php 
 
-session_start(); 
-
-$shop=$_REQUEST['shop'];
-
-$_SESSION['shop']=$shop;
-
-/* $shop1=$_SESSION['shop']; 
-$dsn = "pgsql:"
-    . "host=ec2-54-243-132-114.compute-1.amazonaws.com;"
-    . "dbname=dfjdld5mdvpnbt;"
-    . "user=scvoxznmcyyyvn;"
-    . "port=5432;"
-    . "sslmode=require;"
-    . "password=G9rQkI4BZs82-U2BOyAVgJ2h-Z";
-
-$db = new PDO($dsn);*/
-//$db = new Mysqli("ec2-54-243-132-114.compute-1.amazonaws.com", "scvoxznmcyyyvn", "G9rQkI4BZs82-U2BOyAVgJ2h-Z", "dfjdld5mdvpnbt");
-$host        = "host=ec2-54-243-132-114.compute-1.amazonaws.com";
-   $port        = "port=5432";
-   $dbname      = "dbname=dfjdld5mdvpnbt";
-   $credentials = "user=scvoxznmcyyyvn password=G9rQkI4BZs82-U2BOyAVgJ2h-Z";
-
-   $db = pg_connect( "$host $port $dbname $credentials"  );
-   if(!$db){
-      echo "Error : Unable to open database\n";
-   } else {
-      echo "Opened database successfully\n";
-   }
-if (isset($_POST['btn'])) {
-
-	$shop1='age-verification.myshopify.com';
-	
-	$Heading_text=$_POST['Heading_text'];
-	
-	$message_text=$_POST['message_text'];
-	
-	$Button1_text=$_POST['Button1_text'];
-	
-	$Button1_color=$_POST['Button1_color'];
-	
-	$Button2_text=$_POST['Button2_text'];
-	
+session_start();
+$_SESSION['shop'] = $_REQUEST['shop'];
+$host = "host=ec2-54-243-132-114.compute-1.amazonaws.com";
+$port = "port=5432";
+$dbname = "dbname=dfjdld5mdvpnbt";
+$credentials = "user=scvoxznmcyyyvn password=G9rQkI4BZs82-U2BOyAVgJ2h-Z";
+$db = pg_connect( "$host $port $dbname $credentials"  );
+if(!$db){
+	echo "Error : Unable to open database\n";
+}
+if (isset($_POST['btn'])){
+	$Heading_text=$_POST['Heading_text'];	
+	$message_text=$_POST['message_text'];	
+	$Button1_text=$_POST['Button1_text'];	
+	$Button1_color=$_POST['Button1_color'];	
+	$Button2_text=$_POST['Button2_text'];	
 	$Button2_color=$_POST['Button2_color'];
-	
-	$sid = (!empty($_REQUEST['sid']) ? $_REQUEST['sid'] : 'ae725c0088a30b96494423152c8caea7');
-	
+	$cookie_lifetime = $_POST['cookie_lifetime'];
 	if($db->connect_errno){
-
-		die('Connect Error: ' . $db->connect_errno);
-		
+		die('Connect Error: '.$db->connect_errno);		
 	}
-
-	/*$sql= "update tbl_usersettings 
-		 SET heading = '$Heading_text', 
-		 message_text = '$message_text',Button1_text='$Button1_text',Button1_color='$Button1_color',
-		 Button2_text='$Button2_text',Button2_color='$Button2_color' where access_token = '$sid'";*/
-	$sql =<<<EOF
-      update tbl_usersettings 
-		 SET heading = '$Heading_text', 
-		 message_text = '$message_text',Button1_text='$Button1_text',Button1_color='$Button1_color',
-		 Button2_text='$Button2_text',Button2_color='$Button2_color' where access_token = '$sid';
-EOF;
+	$background_image = '';
+	$target_dir = "images/uploads/";
+	$target_file = time().'-'.basename($_FILES["background_image"]["name"]);
+	if(isset($_FILES["background_image"])) {
+		$check = getimagesize($_FILES["background_image"]["tmp_name"]);
+		if($check !== false) {
+			move_uploaded_file($_FILES["background_image"]["tmp_name"], $target_dir.$target_file);
+			$background_image = $target_dir.$target_file;
+		}
+	}
+	
+	// check first time installation of app
+	$store = $_REQUEST['shop'];
+	$sid = md5(time());
+	$sql_get_shop = "SELECT access_token FROM tbl_usersettings WHERE store_name = '$store'";
+	$res_get_shop = pg_query($db, $sql_get_shop);
+	if($res_get_shop && pg_num_rows($res_get_shop) > 0){ // store settings already exists (update them)
+		$response = pg_fetch_assoc($res_get_shop);
+		$sid = $response['access_token'];
+		$sql = "UPDATE tbl_usersettings SET heading = '$Heading_text', message_text = '$message_text',Button1_text='$Button1_text',button1_color='$Button1_color', Button2_text='$Button2_text',Button2_color='$Button2_color', background_image = '$background_image', cookie_lifetime = '$cookie_lifetime' WHERE access_token = '$sid'";
+	} else { // create new store settings
+		$sql = "INSERT INTO tbl_usersettings (heading, access_token, message_text, button1_text, button1_color, button2_text, button2_color, background_image, cookie_lifetime) values ('$Heading_text', '$sid', '$message_text', '$Button1_text', '$Button1_color', '$Button2_text', '$Button2_color', '$background_image', '$cookie_lifetime')";
+	}
   
-	echo '<span style="background: none repeat scroll 0% 0% rgb(255, 133, 102); padding: 10px 20px; line-height: 35px; float: left; clear: both; border-radius: 4px; font-family: arial; font-style: italic;">&lt;script id="age-verification-script" type="text/javascript" src="https://shopify-testing-app.herokuapp.com/age-verification.js.php?sid='.$sid.'"&gt;&lt;/script&gt;</span>';
-
-	echo '<h4 class="copy_note">Please copy and paste above code in head section of your webpage.</h4>';
-	/* pg_execute($db, "my_query", array("Joe's Widgets"));
-	if (mysqli_query($db, $sql)) {
-
-		echo "Record updated successfully";
-		
-	} else {
-
-		echo "Error updating record: " . mysqli_error($conn);
-		
-	} */
 	$ret = pg_query($db, $sql);
 	if(!$ret){
 		echo pg_last_error($db);
 		exit;
 	} else {
-		echo "Record updated successfully\n";
-	}
+		echo '<span style="background: none repeat scroll 0% 0% rgb(255, 133, 102); padding: 10px 20px; line-height: 35px; float: left; clear: both; border-radius: 4px; font-family: arial; font-style: italic;">&lt;script id="age-verification-script" type="text/javascript" src="https://shopify-testing-app.herokuapp.com/age-verification.js.php?sid='.$sid.'"&gt;&lt;/script&gt;</span>';
 
+		echo '<h4 class="copy_note">Please copy and paste above code in head section of your webpage.</h4>';
+	}
 }
 ?>
 
