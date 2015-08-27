@@ -33,7 +33,8 @@ EOF;
 		$button2_text = $response->button2_text;
 		$button2_color = $response->button2_color;
 		
-		echo '<script type="text/javascript">
+		echo <<<EOF
+		<script type="text/javascript">
 					
 						window.onload = function(){	
 
@@ -232,7 +233,8 @@ EOF;
 							document.getElementById("AVenterLink").style.display="none";
 							
 						}
-						</script>';
+						</script>
+EOF;
 		
 	}
 	die;
