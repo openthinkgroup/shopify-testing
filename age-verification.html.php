@@ -15,7 +15,7 @@ if(isset($_REQUEST['sid'])){
 	$qry = pg_query($db, $sql);
 	if($qry){
 		$response = pg_fetch_assoc($qry);
-		$background_image = $response['background_image'];
+		$background_image = !empty($response['background_image']) ? $response['background_image'] : $background_image;
 	}
 }
 ?>
