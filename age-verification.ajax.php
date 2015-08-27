@@ -131,7 +131,7 @@ EOF;
 									
 									avLink.style.setProperty("font-weight","lighter");
 									
-									avLink.style.setProperty("background-color", '.$button1_color.');
+									avLink.style.setProperty("background-color", "'.$button1_color.'");
 									
 									avLink.style.setProperty("border", "0");
 
@@ -141,7 +141,7 @@ EOF;
 
 									avLink.style.setProperty("box-shadow", "none");
 
-									avLink.setAttribute("value", '.$button1_text.');
+									avLink.setAttribute("value", "'.$button1_text.'");
 
 									document.getElementById("AVcontentBox").appendChild(avLink);
 									
@@ -179,7 +179,7 @@ EOF;
 
 									AVenterLink.style.setProperty("font-weight","lighter");
 
-									AVenterLink.style.setProperty("background-color", '.$button2_color.');
+									AVenterLink.style.setProperty("background-color", "'.$button2_color.'");
 
 									AVenterLink.style.setProperty("border", "0");
 
@@ -189,7 +189,7 @@ EOF;
 
 									AVenterLink.style.setProperty("box-shadow", "none");
 
-									AVenterLink.setAttribute("value", '.$button2_text.');
+									AVenterLink.setAttribute("value", "'.$button2_text.'");
 
 									document.getElementById("AVcontentBox").appendChild(AVenterLink);
 
