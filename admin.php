@@ -28,7 +28,7 @@ if(!$db){
 			$sql_get_shop_temp = "SELECT * FROM tbl_usersettings WHERE store_name = '$store'";
 			$res_get_shop_temp = pg_query($db, $sql_get_shop_temp);
 			if($res_get_shop_temp && pg_num_rows($res_get_shop_temp) > 0){
-				$data = pg_fetch_assoc($res_get_shop_temp); ?>
+				$data = pg_fetch_assoc($res_get_shop_temp); echo "<pre>"; print_r($data); echo "</pre>"; ?>
 				<table>
 					<tr>
 						<td><label for="Heading">Heading title</label></td>
