@@ -46,7 +46,7 @@
 </tr>
 <tr>
 <td><label for="cookie_lifetime">Cookie Lifetime</label></td>
-<td><input type="text" name="ookie_lifetime" class="ookie_lifetime"/>&nbsp;days <code>[Default wil be 365 days]</code></td>
+<td><input type="text" name="cookie_lifetime" class="cookie_lifetime" style="max-width: 100px;"/>&nbsp;days&nbsp;&nbsp;<code style="color:red">[Default will be 365 days]</code></td>
 </tr>
 <tr>
 <td colspan="2"><input type="submit" class="btn" name="btn"></td>
