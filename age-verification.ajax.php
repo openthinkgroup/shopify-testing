@@ -24,7 +24,9 @@ EOF;
 	if ($qry) {
 		
 		$response = pg_fetch_assoc($qry);
-		
+		echo "<pre>";
+		print_r($response);
+		die;
 		$heading = $response->heading;
 		$store_name = $response->store_name;
 		$message_text = $response->message_text;
