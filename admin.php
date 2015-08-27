@@ -28,11 +28,11 @@ if(!$db){
 			$sql_get_shop_temp = "SELECT * FROM tbl_usersettings WHERE store_name = '$store'";
 			$res_get_shop_temp = pg_query($db, $sql_get_shop_temp);
 			if($res_get_shop_temp && pg_num_rows($res_get_shop_temp) > 0){
-				$data = pg_fetch_assoc($res_get_shop_temp); echo "<pre>"; print_r($data); echo "</pre>"; ?>
+				$data = pg_fetch_assoc($res_get_shop_temp); ?>
 				<table>
 					<tr>
 						<td><label for="Heading">Heading title</label></td>
-						<td><input type="text" name="Heading_text" class="Heading_text" value="<?php echo $data['Heading_text']; ?>" required="required"></td>
+						<td><input type="text" name="Heading_text" class="Heading_text" value="<?php echo $data['heading']; ?>" required="required"></td>
 					</tr>
 					<tr>
 						<td><label for="message">message</label></td>
@@ -40,19 +40,19 @@ if(!$db){
 					</tr>
 					<tr>
 						<td><label for="Button1">Button 1 Text</label></td>
-						<td><input type="text" name="Button1_text" class="Button1_text" value="<?php echo $data['Button1_text']; ?>" required="required"></td>
+						<td><input type="text" name="Button1_text" class="Button1_text" value="<?php echo $data['button1_text']; ?>" required="required"></td>
 					</tr>
 					<tr>
 						<td><label for="Button1_color">Button 1 Background Color</label></td>
-						<td><input type="text" name="Button1_color" class="Button1_color" value="<?php echo $data['Button1_color']; ?>" required="required">&nbsp;&nbsp;<code style="color:red">[eg: #000000 or black]</code></td>
+						<td><input type="text" name="Button1_color" class="Button1_color" value="<?php echo $data['button1_color']; ?>" required="required">&nbsp;&nbsp;<code style="color:red">[eg: #000000 or black]</code></td>
 					</tr>
 					<tr>
 						<td><label for="Button2">Button 2 Text</label></td>
-						<td><input type="text" name="Button2_text" class="Button2_text" value="<?php echo $data['Button2_text']; ?>" required="required"></td>
+						<td><input type="text" name="Button2_text" class="Button2_text" value="<?php echo $data['button2_text']; ?>" required="required"></td>
 					</tr>
 					<tr>
 						<td><label for="Button2_color">Button 2 Background Color</label></td>
-						<td><input type="text" name="Button2_color" class="Button2_color" value="<?php echo $data['Button2_color']; ?>" required="required">&nbsp;&nbsp;<code style="color:red">[eg: #ff0000 or red]</code></td>
+						<td><input type="text" name="Button2_color" class="Button2_color" value="<?php echo $data['button2_color']; ?>" required="required">&nbsp;&nbsp;<code style="color:red">[eg: #ff0000 or red]</code></td>
 					</tr>
 					<tr>
 						<td><label for="background_image">Main Background Image</label></td>
