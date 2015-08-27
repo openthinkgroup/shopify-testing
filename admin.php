@@ -36,7 +36,7 @@ if(!$db){
 					</tr>
 					<tr>
 						<td><label for="message">message</label></td>
-						<td><textarea name="message_text" class="message_text" value="<?php echo $data['message_text']; ?>" required="required" ></textarea></td>
+						<td><textarea name="message_text" class="message_text" required="required" ><?php echo $data['message_text']; ?></textarea></td>
 					</tr>
 					<tr>
 						<td><label for="Button1">Button 1 Text</label></td>
