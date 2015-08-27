@@ -5,7 +5,7 @@ $port        = "port=5432";
 $dbname      = "dbname=dfjdld5mdvpnbt";
 $credentials = "user=scvoxznmcyyyvn password=G9rQkI4BZs82-U2BOyAVgJ2h-Z";
 $db = pg_connect("$host $port $dbname $credentials" );
-$background_image='images/av_logo.jpg';
+$background_image='images/vaping2.jpg';
 if(isset($_REQUEST['sid'])){
 	$sid = $_REQUEST['sid'];
 	if(!$db){
@@ -25,9 +25,9 @@ if(isset($_REQUEST['sid'])){
 		<title>Age-Verification HTML</title>
 		<link rel="stylesheet" href="age-verification.css" type="text/css">
 	</head>
-	<body class="vaping2">
+	<body class="vaping2" style="background: url('<?php echo $background_image; ?>');">
 		<div id="AVpattern">
-			<div id="AVcontentBG" style="background: url('<?php echo $background_image; ?>');"></div>
+			<div id="AVcontentBG"></div>
 			<a href="http://age-verify.com" target="_blank"><img src="images/av_logo.jpg" id="AVlink"></a>
 		</div>
 	</body>
