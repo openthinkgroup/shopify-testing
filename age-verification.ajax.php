@@ -33,17 +33,14 @@ EOF;
 		$button2_text = $response->button2_text;
 		$button2_color = $response->button2_color;
 		
-		echo <<<EOF
-		<script type="text/javascript">
+		echo '<script type="text/javascript">
 					
 						window.onload = function(){	
 
 							try{
 								
 								/* if(document.cookie.replace(/(?:(?:^|.*;\s*)verify\s*\=\s*([^;]*).*$)|^.*$/,"$1")!=="true"){ */
-									
-									console.log(_data); 
-									
+																		
 									var AVoverlay = document.createElement("iframe");
 									
 									AVoverlay.setAttribute("id","AVoverlay");
@@ -233,8 +230,7 @@ EOF;
 							document.getElementById("AVenterLink").style.display="none";
 							
 						}
-						</script>
-EOF;
+						</script>';
 		
 	}
 	die;
