@@ -25,7 +25,7 @@ if(isset($_REQUEST['sid'])){
 		
 		echo '(function() {
 			try{
-				if(document.cookie.replace(/(?:(?:^|.*;\s*)verify\s*\=\s*([^;]*).*$)|^.*$/,"$1")!=="true"){
+				/* if(document.cookie.replace(/(?:(?:^|.*;\s*)verify\s*\=\s*([^;]*).*$)|^.*$/,"$1")!=="true"){ */
 					var AVoverlay = document.createElement("iframe");
 					AVoverlay.setAttribute("id","AVoverlay");
 					AVoverlay.setAttribute("src","https://shopify-testing-app.herokuapp.com/age-verification.html.php?sid='.$sid.'");
@@ -103,7 +103,7 @@ if(isset($_REQUEST['sid'])){
 					AVenterLink.style.setProperty("box-shadow", "none");
 					AVenterLink.setAttribute("value", "'.$button2_text.'");
 					document.getElementById("AVcontentBox").appendChild(AVenterLink);
-				}					
+				/* }					 */
 			} catch(ex) {					
 				console.log(ex);					
 			}
