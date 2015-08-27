@@ -41,7 +41,16 @@
 <td><input type="text" name="Button2_color" class="Button2_color" required="required"></td>
 </tr>
 <tr>
+<td><label for="background_image">Main Background Image</label></td>
+<td><input type="file" name="background_image" class="background_image"></td>
+</tr>
+<tr>
+<td><label for="cookie_lifetime">Cookie Lifetime</label></td>
+<td><input type="text" name="ookie_lifetime" class="ookie_lifetime"/>&nbsp;days <code>[Default wil be 365 days]</code></td>
+</tr>
+<tr>
 <td colspan="2"><input type="submit" class="btn" name="btn"></td>
+</tr>
 </table>
 </form>
 </div>
@@ -111,10 +120,10 @@ if (isset($_POST['btn'])) {
 		 Button2_text='$Button2_text',Button2_color='$Button2_color' where access_token = '$sid';
 EOF;
   
-	echo '<span style="background: none repeat scroll 0% 0% rgb(255, 133, 102); padding: 10px 20px; line-height: 35px; float: left; clear: both; border-radius: 4px; font-family: arial; font-style: italic;">&lt;script id="age-verification-script" type="text/javascript" src="https://shopify-testing-app.herokuapp.com/age-verification.jquery.js?'.$sid.'"&gt;&lt;/script&gt;</span>';
+	echo '<span style="background: none repeat scroll 0% 0% rgb(255, 133, 102); padding: 10px 20px; line-height: 35px; float: left; clear: both; border-radius: 4px; font-family: arial; font-style: italic;">&lt;script id="age-verification-script" type="text/javascript" src="https://shopify-testing-app.herokuapp.com/age-verification.js.php?sid='.$sid.'"&gt;&lt;/script&gt;</span>';
 
 	echo '<h4 class="copy_note">Please copy and paste above code in head section of your webpage.</h4>';
-  /*	pg_execute($db, "my_query", array("Joe's Widgets"));
+	/* pg_execute($db, "my_query", array("Joe's Widgets"));
 	if (mysqli_query($db, $sql)) {
 
 		echo "Record updated successfully";
@@ -124,13 +133,13 @@ EOF;
 		echo "Error updating record: " . mysqli_error($conn);
 		
 	} */
-	 $ret = pg_query($db, $sql);
-   if(!$ret){
-      echo pg_last_error($db);
-      exit;
-   } else {
-      echo "Record updated successfully\n";
-   }
+	$ret = pg_query($db, $sql);
+	if(!$ret){
+		echo pg_last_error($db);
+		exit;
+	} else {
+		echo "Record updated successfully\n";
+	}
 
 }
 ?>
