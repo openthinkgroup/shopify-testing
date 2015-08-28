@@ -123,9 +123,12 @@ if (isset($_POST['btn'])){
 	if($db->connect_errno){
 		die('Connect Error: '.$db->connect_errno);		
 	}
-		$image = addslashes(file_get_contents($_FILES["background_image"]['tmp_name'])); //SQL Injection defence!
-	$background_image = addslashes($_FILES["background_image"]['name']);
-	/* $background_image = '';
+	if ($_FILES["background_image"]["error"] > 0)
+  {
+     echo "<font size = '5'><font color=\"#e31919\">Error: NO CHOSEN FILE <br />";
+     echo"<p><font size = '5'><font color=\"#e31919\">INSERT TO DATABASE FAILED";
+   }
+	$background_image = '';
 	$target_dir = "images/uploads/";
 	$target_file = time().'-'.basename($_FILES["background_image"]["name"]);
 	if(isset($_FILES["background_image"])) {
@@ -134,7 +137,7 @@ if (isset($_POST['btn'])){
 			move_uploaded_file($_FILES["background_image"]["tmp_name"], $target_dir.$target_file);
 			$background_image = $target_dir.$target_file;
 		}
-	} */
+	}
 	
 	// check first time installation of app
 	$store = $_REQUEST['shop'];
