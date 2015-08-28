@@ -29,7 +29,7 @@ if(isset($_REQUEST['sid'])){
 				 if(document.cookie.replace(/(?:(?:^|.*;\s*)verify\s*\=\s*([^;]*).*$)|^.*$/,"$1")!=="true"){ 
 					var AVoverlay = document.createElement("iframe");
 					AVoverlay.setAttribute("id","AVoverlay");
-					AVoverlay.setAttribute("src","https://shopify-testing-app.herokuapp.com/age-verification.html.php?sid='.$sid.'");
+					AVoverlay.setAttribute("src","https://age-verification.herokuapp.com/age-verification.html.php?sid='.$sid.'");
 					AVoverlay.style.width = "100%";
 					AVoverlay.style.height = "100%";
 					AVoverlay.style.setProperty("position", "fixed");
