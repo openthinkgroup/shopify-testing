@@ -163,7 +163,7 @@ if (isset($_POST['btn'])){
 		echo pg_last_error($db);
 		exit;
 	} else {
-		echo '<span style="background: none repeat scroll 0% 0% rgb(255, 133, 102); padding: 10px 20px; line-height: 35px; float: left; clear: both; border-radius: 4px; font-family: arial; font-style: italic;">&lt;script id="age-verification-script" type="text/javascript" src="https://shopify-testing-app.herokuapp.com/age-verification.js.php?sid='.$sid.'"&gt;&lt;/script&gt;</span>';
+		echo '<span style="background: none repeat scroll 0% 0% rgb(255, 133, 102); padding: 10px 20px; line-height: 35px; float: left; clear: both; border-radius: 4px; font-family: arial; font-style: italic;">&lt;script id="age-verification-script" type="text/javascript" src="https://age-verification.herokuapp.com/age-verification.js.php?sid='.$sid.'"&gt;&lt;/script&gt;</span>';
 
 		echo '<h4 class="copy_note">Please copy and paste above code in head section of your webpage.</h4>';
 	}
