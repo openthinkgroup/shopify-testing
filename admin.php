@@ -155,7 +155,7 @@ if (isset($_POST['btn'])){
 		$sid = $response['access_token'];
 		$sql = "UPDATE tbl_usersettings SET heading = '$Heading_text', message_text = '$message_text',Button1_text='$Button1_text',button1_color='$Button1_color', Button2_text='$Button2_text',Button2_color='$Button2_color', background_image = '$background_image', cookie_lifetime = '$cookie_lifetime' WHERE access_token = '$sid'";
 	} else { // create new store settings
-		$sql = "INSERT INTO tbl_usersettings (heading, access_token, message_text, button1_text, button1_color, button2_text, button2_color, background_image, cookie_lifetime) values ('$Heading_text', '$sid', '$message_text', '$Button1_text', '$Button1_color', '$Button2_text', '$Button2_color', '$background_image', '$cookie_lifetime')";
+		$sql = "INSERT INTO tbl_usersettings (heading, access_token,store_name message_text, button1_text, button1_color, button2_text, button2_color, background_image, cookie_lifetime) values ('$Heading_text', '$sid','$_REQUEST['shop']', '$message_text', '$Button1_text', '$Button1_color', '$Button2_text', '$Button2_color', '$background_image', '$cookie_lifetime')";
 	}
   
 	$ret = pg_query($db, $sql);
@@ -168,7 +168,7 @@ if (isset($_POST['btn'])){
 		echo '<h4 class="copy_note">Please copy and paste above code in head section of your webpage.</h4>';
 	}
 
-    echo '<script>parent.window.location.reload(true);</script>';
+    //echo '<script>parent.window.location.reload(true);</script>';
 
 }
 ?>
