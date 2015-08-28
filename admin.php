@@ -22,7 +22,7 @@ if(!$db){
 	</div>
 	<div class="row">
 		<h3>Please Fill the form Fields</h3>
-		<form action="#" method="post" class="age_form">
+		<form action="#" method="post" class="age_form" enctype="multipart/form-data">
 			<?php
 			$store = $_REQUEST['shop'];			
 			$sql_get_shop_temp = "SELECT * FROM tbl_usersettings WHERE store_name = '$store'";
