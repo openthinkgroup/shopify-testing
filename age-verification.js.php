@@ -84,7 +84,7 @@ if(isset($_REQUEST['sid'])){
 					var AVenterLink = document.createElement("input");
 					AVenterLink.setAttribute("id","AVenterLink");
 					AVenterLink.setAttribute("type","button");
-					AVenterLink.setAttribute("onclick","window.parent.location=http://google.com/");
+					AVenterLink.setAttribute("onclick","parent.document.location.href=http://google.com/");
 				       
 					AVenterLink.style.position = "fixed";
 					AVenterLink.style.cursor = "pointer";
