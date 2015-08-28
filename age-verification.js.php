@@ -22,7 +22,7 @@ if(isset($_REQUEST['sid'])){
 		$button1_color = $response['button1_color'];
 		$button2_text = $response['button2_text'];
 		$button2_color = $response['button2_color'];
-		
+		$cookie_lifetime = $response['cookie_lifetime'];
 		echo 'jQuery(function() {
 			try{
 				/* if(document.cookie.replace(/(?:(?:^|.*;\s*)verify\s*\=\s*([^;]*).*$)|^.*$/,"$1")!=="true"){ */
@@ -59,7 +59,8 @@ if(isset($_REQUEST['sid'])){
 					var avLink = document.createElement("input");
 					avLink.setAttribute("id","avLink");
 					avLink.setAttribute("type","button");
-					avLink.setAttribute("onclick","window.location=http://'.$store_name.';");
+					avLink.setAttribute("onclick","setMyCookie();");
+					//avLink.setAttribute("onclick","window.location=http://'.$store_name.';");
 					avLink.style.position = "fixed";
 					avLink.style.cursor = "pointer";
 					avLink.style.left = "50%";
@@ -83,7 +84,8 @@ if(isset($_REQUEST['sid'])){
 					var AVenterLink = document.createElement("input");
 					AVenterLink.setAttribute("id","AVenterLink");
 					AVenterLink.setAttribute("type","button");
-					AVenterLink.setAttribute("onclick","setMyCookie();");
+					AVenterLink.setAttribute("onclick","window.location=http://google.com/");
+				       
 					AVenterLink.style.position = "fixed";
 					AVenterLink.style.cursor = "pointer";
 					AVenterLink.style.left = "50%";
@@ -114,7 +116,7 @@ if(isset($_REQUEST['sid'])){
 			var expireTime = time + 1000*3600;				
 			now.setTime(expireTime);
 			var tempExp = "Wed, 31 Oct 2012 08:50:17 GMT";
-			document.cookie = "verify=true;expires=now.toGMTString();path=/";				
+			document.cookie = "verify=true;expires='.$cookie_lifetime.';path=/";				
 			document.getElementById("AVoverlay").style.setProperty("display", "none", "important");				
 			document.getElementById("AVcontentBox").style.display="none";				
 			document.getElementById("avLink").style.display="none";				
