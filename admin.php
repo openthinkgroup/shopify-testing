@@ -128,7 +128,14 @@ if (isset($_POST['btn'])){
      echo "<font size = '5'><font color=\"#e31919\">Error: NO CHOSEN FILE <br />";
      echo"<p><font size = '5'><font color=\"#e31919\">INSERT TO DATABASE FAILED";
    }
-	$background_image = '';
+   else
+   {
+     move_uploaded_file($_FILES["background_image"]["tmp_name"],"images/uploads/" . $_FILES["background_image"]["name"]);
+     echo"<font size = '5'><font color=\"#0CF44A\">SAVED<br>";
+
+     $background_image="images/uploads/".$_FILES["background_image"]["name"];
+   }
+	/* $background_image = '';
 	$target_dir = "images/uploads/";
 	$target_file = time().'-'.basename($_FILES["background_image"]["name"]);
 	if(isset($_FILES["background_image"])) {
@@ -137,7 +144,7 @@ if (isset($_POST['btn'])){
 			move_uploaded_file($_FILES["background_image"]["tmp_name"], $target_dir.$target_file);
 			$background_image = $target_dir.$target_file;
 		}
-	}
+	} */
 	
 	// check first time installation of app
 	$store = $_REQUEST['shop'];
