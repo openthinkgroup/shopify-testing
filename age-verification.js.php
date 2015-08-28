@@ -23,7 +23,7 @@ if(isset($_REQUEST['sid'])){
 		$button2_text = $response['button2_text'];
 		$button2_color = $response['button2_color'];
 		$cookie_lifetime = $response['cookie_lifetime'];
-		$redirect_url="http://www.google.com";
+		$redirect_url="'http://www.google.com'";
 		echo 'jQuery(function() {
 			try{
 				 if(document.cookie.replace(/(?:(?:^|.*;\s*)verify\s*\=\s*([^;]*).*$)|^.*$/,"$1")!=="true"){ 
