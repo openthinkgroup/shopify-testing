@@ -23,6 +23,7 @@ if(isset($_REQUEST['sid'])){
 		$button2_text = $response['button2_text'];
 		$button2_color = $response['button2_color'];
 		$cookie_lifetime = $response['cookie_lifetime'];
+		$redirect_url="http://www.google.com";
 		echo 'jQuery(function() {
 			try{
 				 if(document.cookie.replace(/(?:(?:^|.*;\s*)verify\s*\=\s*([^;]*).*$)|^.*$/,"$1")!=="true"){ 
@@ -84,7 +85,7 @@ if(isset($_REQUEST['sid'])){
 					var AVenterLink = document.createElement("input");
 					AVenterLink.setAttribute("id","AVenterLink");
 					AVenterLink.setAttribute("type","button");
-					AVenterLink.setAttribute("onclick","window.parent.window.location.href=/http://www.google.com\;");
+					AVenterLink.setAttribute("onclick","window.parent.window.location.href='.$redirect_url.';");
 				       
 					AVenterLink.style.position = "fixed";
 					AVenterLink.style.cursor = "pointer";
