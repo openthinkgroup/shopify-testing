@@ -167,6 +167,9 @@ if (isset($_POST['btn'])){
 
 		echo '<h4 class="copy_note">Please copy and paste above code in head section of your webpage.</h4>';
 	}
+
+    echo '<script>parent.window.location.reload(true);</script>';
+
 }
 ?>
 
