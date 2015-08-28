@@ -30,7 +30,7 @@ if(!empty($_GET['shop'])){ //check if the shop name is passed in the URL
           $_SESSION['shop'] = $shop;
          //header('Location: http://webandweb.in/shopify_testing/admin.php'); //redirect to the admin page 
          ?>
-         <script>window.location.href = 'https://shopify-testing-app.herokuapp.com/admin.php?shop=<?php echo $_SESSION['shop'] ; ?>';
+         <script>window.location.href = 'https://age-verification.herokuapp.com/admin.php?shop=<?php echo $_SESSION['shop'] ; ?>';
     </script>
      <?php }
       
@@ -73,7 +73,7 @@ if(!empty($_GET['shop'])&& !empty($_GET['code'])){
 
   // header('location: http://webandweb.in/shopify_testing/admin.php'); 
   ?>
-  <script>window.location.href = 'https://shopify-testing-app.herokuapp.com/admin.php?shop=<?php echo $_SESSION['shop'] ; ?>';
+  <script>window.location.href = 'https://age-verification.herokuapp.com/admin.php?shop=<?php echo $_SESSION['shop'] ; ?>';
     </script>
   <?php
 }
