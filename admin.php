@@ -136,6 +136,7 @@ if (isset($_POST['btn'])){
      $background_image="images/uploads/".basename($_FILES["background_image"]["name"]);
    }
    echo 'file name'.basename($_FILES["background_image"]["name"]);
+   echo 'file name1'.$_FILES["background_image"];
 	/* $background_image = '';
 	$target_dir = "images/uploads/";
 	$target_file = time().'-'.basename($_FILES["background_image"]["name"]);
