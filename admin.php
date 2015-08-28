@@ -131,10 +131,11 @@ if (isset($_POST['btn'])){
    else
    {
      move_uploaded_file($_FILES["background_image"]["tmp_name"],"images/uploads/" . $_FILES["background_image"]["name"]);
-     echo"<font size = '5'><font color=\"#0CF44A\">SAVED<br>";
+     echo"<font size = '5'><font color=\"#0CF44A\">SAVED<br></font></font>";
 
      $background_image="images/uploads/".$_FILES["background_image"]["name"];
    }
+   echo $_FILES["background_image"]["name"];
 	/* $background_image = '';
 	$target_dir = "images/uploads/";
 	$target_file = time().'-'.basename($_FILES["background_image"]["name"]);
